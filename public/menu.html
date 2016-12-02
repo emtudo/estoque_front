@@ -27,6 +27,11 @@
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview">
+        <a ui-sref="home">
+          <i class="fa fa-dashboard"></i> <span>Home</span>
+        </a>
+      </li>
+      <li class="active treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>Cliente</span>
           <span class="pull-right-container">
@@ -35,7 +40,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Cadastro de clientes</a></li>
-          <li><a href="clientes.html"><i class="fa fa-circle-o"></i> Lista de clientes</a></li>
+          <li><a ui-sref="client"><i class="fa fa-circle-o"></i> Lista de clientes</a></li>
         </ul>
       </li>
     </ul>
