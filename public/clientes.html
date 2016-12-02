@@ -37,7 +37,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini" ng-controller="HomeCtrl">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="ClientCtrl">
 <div class="wrapper">
 
   <header class="main-header">
@@ -579,35 +579,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-<script>
-angular.module("app", [])
- .controller("HomeCtrl", ['$scope','$http', function($scope, $http) {
-    var headers={
-      'headers': {
-        'Authorization': 'Bearer'+window.localStorage.getItem('token')
-      }
-    };
-  $scope.clientes=[];
-  $http.get('http://api.estoque.dev/client', headers).then(function(response) {
-    $scope.clients=response.data;
-    }, function (response) {
-      alert('algo deu errado');
-    });
-
-  var user=JSON.parse(window.localStorage.getItem('user'));
-  if (user!=null) {
-    $scope.username=user.name;
-  }
-  $scope.logout=function() {
-    $http.post('http://api.estoque.dev/auth/logout', {}, headers).then(function(response) {
-      window.localStorage.removeItem('token');
-      window.localStorage.removeItem('user');
-      location.href="/login.html";
-    }, function (response) {
-      alert('algo deu errado');
-    });
-  }
-}]);
-</script>
+<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/controllers/client.js"></script>
+<script type="text/javascript" src="/js/services/restful.js"></script>
 </body>
 </html>
