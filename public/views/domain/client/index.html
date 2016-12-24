@@ -22,7 +22,12 @@
             <label>{{ client.birthdate}}</label>
           </div>
           <div class="from-group">
-            <button class="btn btn-danger" ng-click="delete(client)">Excluir</button>
+            <div class="col-md-6">
+              <button class="btn btn-success" ng-click="edit(client)">Editar</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-danger" ng-click="delete(client)">Excluir</button>
+            </div>
           </div>
         </div>
     </div>
