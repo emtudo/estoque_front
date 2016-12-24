@@ -2,14 +2,14 @@
 * @author: Leandro Henrique
 * @date:   2016-12-02 08:41:13
 * @last modified by:   Leandro Henrique
-* @last modified time: 2016-12-02 10:59:50
+* @last modified time: 2016-12-24 09:04:18
 */
 
 'use strict';
 
 angular.module("app")
  .controller("ClientCtrl", ['$scope','Restful', function($scope, Restful) {
-  $scope.clientes=[];
+  $scope.clients=[];
   Restful.get('client').then(function(response) {
     $scope.clients=response.data;
     }, function (response) {
@@ -21,6 +21,15 @@ angular.module("app")
     Restful.post('client',client).then(function(respone) {
       alert('ok');
     }, function(response) {
+      alert('algo deu erro');
+    });
+  }
+  $scope.delete = function (client)
+  {
+    Restful.delete('client/'+client.id).then(function (response) {
+      var index = $scope.clients.indexOf(client);
+      $scope.clients.splice(index, 1);
+    }, function (response) {
       alert('algo deu erro');
     });
   }

@@ -2,7 +2,7 @@
 * @author: Leandro Henrique
 * @date:   2016-12-02 08:43:57
 * @last modified by:   Leandro Henrique
-* @last modified time: 2016-12-02 09:04:16
+* @last modified time: 2016-12-24 09:03:51
 */
 
 'use strict';
@@ -28,6 +28,10 @@ function Restful($http) {
 
     vm.post=function(path, data) {
       return $http.post(api+path, data, vm.getHeaders());
+    }
+
+    vm.delete = function(path) {
+      return $http.delete(api + path, vm.getHeaders());
     }
 
     vm.login=function(path, data) {
